@@ -1,5 +1,5 @@
 return {
-  { "tpope/vim-surround" },
-  { "tpope/vim-speeddating" },
-  { "tpope/vim-repeat" },
+  { "tpope/vim-surround",    event = "User AstroFile" },
+  { "tpope/vim-speeddating", event = "User AstroFile" },
+  { "tpope/vim-repeat",      event = "User AstroFile" },
 }

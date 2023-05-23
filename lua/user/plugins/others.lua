@@ -1,10 +1,14 @@
 return {
-  { "diepm/vim-rest-console" },
+  -- direnv
+  { "direnv/direnv.vim",       lazy = false },
+
+  -- Search and replace
   {
     "nvim-pack/nvim-spectre",
-    event = "BufRead",
-    config = function()
-      require("spectre").setup()
-    end,
+    cmd = { "Spectre", "SpectreReload" },
   },
+
+  -- REST client
+  { "diepm/vim-rest-console",  event = "User AstroFile" },
+
 }

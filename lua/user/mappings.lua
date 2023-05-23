@@ -1,8 +1,6 @@
 return {
-  -- first key is the mode
+  -- Normal mode
   n = {
-    -- second key is the lefthand side of the map
-    -- mappings seen under group name "Buffer"
     -- ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     -- ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
     -- ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
@@ -11,15 +9,29 @@ return {
     -- Easy buffer navigation
     ["<tab>"] = { "<cmd>bnext<cr>", desc = "Switch to next buffer" },
     ["<S-tab>"] = { "<cmd>bprevious<cr>", desc = "Switch to previous buffer" },
-    ["<leader>b>"] = { "<cmd>bprevious<cr>", desc = "Switch to previous buffer" },
 
-    -- My personal keybindings
-    ["<leader>xb"] = { "<cmd>Neotree toggle buffers left<cr>", desc = "Open neotree buffers" },
-    ["<leader>xt"] = { "<cmd>terminal tig<cr>", desc = "Open tig in a new tab" },
-    ["<leader>tt"] = { "<cmd>terminal tig<cr>", desc = "Open tig in a new tab" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+
+    -- My personal keybindings
+    ["<leader>x"] = { name = "Personal" },
+
+    ["<leader>xn"] = { name = "Neotree" },
+    ["<leader>xnb"] = { "<cmd>Neotree toggle buffers left<cr>", desc = "Open Neotree Buffers" },
+    ["<leader>xng"] = { "<cmd>Neotree toggle git_status left<cr>", desc = "Open Neotree Git status" },
+
+    ["<leader>xt"] = { "<cmd>terminal tig<cr>", desc = "Open tig in a new tab" },
+    ["<leader>xs"] = { "<cmd>Spectre<cr>", desc = "Spectre (search and replace)" },
+
+    -- My telescope keybindings
+    ["<leader>fo"] = { "<cmd>Telescope spell_suggest<cr>", desc = "Spell suggegestion with telescope" },
   },
+
+
+  -- Insert mode
+  i = {},
+
+  -- Terminal mode
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
