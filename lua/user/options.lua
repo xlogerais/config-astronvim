@@ -3,12 +3,14 @@ return {
   opt = {
     relativenumber = false, -- sets vim.opt.relativenumber
     cmdheight = 1,
-    -- number = true,         -- sets vim.opt.number
+    scrolloff = 0,          -- Set scroll offset to zero so that zt and zb work as expected
     -- spell = false,         -- sets vim.opt.spell
+    spelllang = "fr",       -- Set spell language to french
+    -- number = true,         -- sets vim.opt.number
     -- signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
     -- wrap = false,          -- sets vim.opt.wrap
-    scrolloff = 0
   },
+
   g = {
     -- mapleader = " ",                 -- sets vim.g.mapleader
     -- autoformat_enabled = true,       -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
@@ -18,6 +20,7 @@ return {
     -- icons_enabled = true,            -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
     -- ui_notifications_enabled = true, -- disable notifications when toggling UI elements
   },
+
 }
 -- If you need more control, you can use the function()...end notation
 -- return function(local_vim)
