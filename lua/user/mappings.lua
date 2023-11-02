@@ -23,7 +23,8 @@ return {
     ["<leader>xt"] = { "<cmd>terminal tig<cr>", desc = "Open tig in a new tab" },
 
     -- My telescope keybindings
-    ["<leader>fo"] = { "<cmd>Telescope spell_suggest<cr>", desc = "Spell suggegestion with telescope" },
+    ["<leader>fq"] = { "<cmd>Telescope quickfix<cr>", desc = "Find quickfixes with Telescope" },
+    ["<leader>fs"] = { "<cmd>Telescope spell_suggest<cr>", desc = "Find spell suggestions with Telescope" },
   },
 
 
@@ -37,6 +38,9 @@ return {
     -- Clear Ctrl+l so that we can use it to clear the terminal
     ["<C-l>"] = false,
     ["<C-h>"] = false,
+    -- Clear Ctrl-J and Ctrl-K so that we can use them to navigate the terminal (for lazygit)
+    ["<C-j>"] = false,
+    ["<C-k>"] = false,
     -- Switch to normal mode in terminal mode
     ["<Esc><Esc><Esc>"] = { "<C-\\><C-n>" }
   },
