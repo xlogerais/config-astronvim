@@ -14,13 +14,10 @@ return {
     -- })
 
     -- Set up custom autocmds
-    vim.api.nvim_create_augroup("myterm", { clear = true })
-    vim.api.nvim_create_autocmd("TermOpen", {
-      desc = "Auto switch to insert mode for terminal",
-      group = "myterm",
-      pattern = "term://*",
-      command = "startinsert",
-    })
+    require "user.autocmds.text"
+    require "user.autocmds.terminal"
+    require "user.autocmds.groovy"
+
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
