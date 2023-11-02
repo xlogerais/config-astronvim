@@ -21,7 +21,6 @@ return {
     ["<leader>xng"] = { "<cmd>Neotree toggle git_status left<cr>", desc = "Open Neotree Git status" },
 
     ["<leader>xt"] = { "<cmd>terminal tig<cr>", desc = "Open tig in a new tab" },
-    ["<leader>xs"] = { "<cmd>Spectre<cr>", desc = "Spectre (search and replace)" },
 
     -- My telescope keybindings
     ["<leader>fo"] = { "<cmd>Telescope spell_suggest<cr>", desc = "Spell suggegestion with telescope" },
