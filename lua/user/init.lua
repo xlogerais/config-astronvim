@@ -17,6 +17,7 @@ return {
     require "user.autocmds.text"
     require "user.autocmds.terminal"
     require "user.autocmds.groovy"
+    require "user.autocmds.python"
 
     -- Set up custom filetypes
     -- vim.filetype.add {

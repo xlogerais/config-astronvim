@@ -13,35 +13,47 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
 
-    -- My personal keybindings
-    ["<leader>x"] = { name = "Personal" },
-
-    ["<leader>xn"] = { name = "Neotree" },
-    ["<leader>xnb"] = { "<cmd>Neotree toggle buffers left<cr>", desc = "Open Neotree Buffers" },
-    ["<leader>xng"] = { "<cmd>Neotree toggle git_status left<cr>", desc = "Open Neotree Git status" },
-
-    ["<leader>xt"] = { "<cmd>terminal tig<cr>", desc = "Open tig in a new tab" },
-
     -- My telescope keybindings
     ["<leader>fq"] = { "<cmd>Telescope quickfix<cr>", desc = "Find quickfixes with Telescope" },
     ["<leader>fs"] = { "<cmd>Telescope spell_suggest<cr>", desc = "Find spell suggestions with Telescope" },
+    ["<leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projetcs with Telescope" },
+
+    -- My personal keybindings
+    ["<leader>²"] = { name = "Personal" },
+    ["<leader>²t"] = { name = "Terminals" },
+    ["<leader>²tt"] = { "<cmd>TermSelect<cr>", desc = "Select a terminal" },
+    ["<leader>²tg"] = { "<cmd>terminal tig<cr>", desc = "Open tig in a new tab" },
+
+    ["<leader>²n"] = { name = "Neotree" },
+    ["<leader>²nb"] = { "<cmd>Neotree toggle buffers left<cr>", desc = "Open Neotree Buffers" },
+    ["<leader>²ng"] = { "<cmd>Neotree toggle git_status left<cr>", desc = "Open Neotree Git status" },
+
+    ["<F26>"] = { '<cmd>Neotree toggle<cr>', desc = "File Explorer" },                                     -- F26 corresponds to <Ctrl+F2> on my keyboard
+    ["<F27>"] = { function() require("astronvim.utils").toggle_term_cmd "lazygit" end, desc = "Lazygit" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
+    ["<F28>"] = { function() require("astronvim.utils").toggle_term_cmd "tig" end, desc = "Tig" },         -- F28 corresponds to <Ctrl+F4> on my keyboard
   },
 
 
   -- Insert mode
-  i = {},
+  i = {
+    ["<F26>"] = { '<cmd>Neotree toggle<cr>', desc = "File Explorer" },                                     -- F26 corresponds to <Ctrl+F2> on my keyboard
+    ["<F27>"] = { function() require("astronvim.utils").toggle_term_cmd "lazygit" end, desc = "Lazygit" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
+    ["<F28>"] = { function() require("astronvim.utils").toggle_term_cmd "tig" end, desc = "Tig" },         -- F28 corresponds to <Ctrl+F4> on my keyboard
+  },
 
   -- Terminal mode
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    -- Switch to normal mode in terminal mode
+    ["<Esc><Esc><Esc>"] = { "<C-\\><C-n>" },
     -- Clear Ctrl+l so that we can use it to clear the terminal
     ["<C-l>"] = false,
     ["<C-h>"] = false,
     -- Clear Ctrl-J and Ctrl-K so that we can use them to navigate the terminal (for lazygit)
     ["<C-j>"] = false,
     ["<C-k>"] = false,
-    -- Switch to normal mode in terminal mode
-    ["<Esc><Esc><Esc>"] = { "<C-\\><C-n>" }
+    ["<F27>"] = { function() require("astronvim.utils").toggle_term_cmd "lazygit" end, desc = "Lazygit" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
+    ["<F28>"] = { function() require("astronvim.utils").toggle_term_cmd "tig" end, desc = "Tig" },         -- F28 corresponds to <Ctrl+F4> on my keyboard
   },
 }
