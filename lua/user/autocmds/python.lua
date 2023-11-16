@@ -6,28 +6,41 @@ vim.api.nvim_create_autocmd(
       local utils = require("astronvim.utils")
       utils.notify("Loading autocmd customizations for python files")
 
+      -- Vim settings
+
+      vim.opt.signcolumn = "auto"
+      vim.opt.foldcolumn = "auto"
+
+
+      -- Terminal settings
+
+      -- Define prefered options for the terminal
+      local name = "python"
+      local direction = "vertical"
+      local size = 100
+
       -- Define a new terminal dedicated to python
       local Terminal = require('toggleterm.terminal').Terminal
       local python = Terminal:new({
-        name = "python",
-        size = 100,
-        direction = "vertical",
+        name = name,
+        size = size,
+        direction = direction,
         hidden = true,
-        close_on_exit = true,
+        -- close_on_exit = true,
       })
 
-      -- Spawn in background so it will be ready to execute code
+      -- Spawn it in background so it will be ready to execute code
       python:spawn()
 
       -- Define a function to toggle the terminal
       function _Python_terminal_toggle()
-        python:toggle(100, 'vertical')
+        python:toggle(size, direction)
       end
 
       -- Define a function to run code from current buffer in the terminal
       function _Python_buffer_exec()
         local command = string.format(" python %s", vim.api.nvim_buf_get_name(0))
-        python:open(100, 'vertical')
+        if not python:is_open() then python:open(size, direction) end
         python:send(' clear', true)
         python:send(command, true)
       end
@@ -57,11 +70,6 @@ vim.api.nvim_create_autocmd(
         -- "<cmd>TermExec name=python cmd='python %'<cr>",
         '<cmd>lua _Python_buffer_exec()<cr>',
         { noremap = true, silent = true })
-
-      -- Test
-      -- local is_available = utils.is_available
-      -- if is_available "notify" then
-      --   notify("notify is available", "info")
     end,
   }
 )
