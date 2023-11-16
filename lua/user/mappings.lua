@@ -14,6 +14,7 @@ return {
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
 
     -- My telescope keybindings
+    ["<leader>gf"] = { "<cmd>Telescope git_files<cr>", desc = "Find git files with Telescope" },
     ["<leader>fq"] = { "<cmd>Telescope quickfix<cr>", desc = "Find quickfixes with Telescope" },
     ["<leader>fs"] = { "<cmd>Telescope spell_suggest<cr>", desc = "Find spell suggestions with Telescope" },
     ["<leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projetcs with Telescope" },
