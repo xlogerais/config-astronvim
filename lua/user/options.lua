@@ -1,13 +1,19 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
 return {
   opt = {
-    relativenumber = false, -- sets vim.opt.relativenumber
     cmdheight = 1,
+
     scrolloff = 0,          -- Set scroll offset to zero so that zt and zb work as expected
-    -- spell = false,         -- sets vim.opt.spell
+
+    number = true,          -- sets vim.opt.number
+    relativenumber = false, -- sets vim.opt.relativenumber
+
+    signcolumn = "auto",    -- sets vim.opt.signcolumn to auto
+    foldcolumn = "auto",    -- sets vim.opt.foldcolumn to auto
+
     spelllang = "fr",       -- Set spell language to french
-    -- number = true,         -- sets vim.opt.number
-    -- signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
+    -- spell = false,         -- sets vim.opt.spell
+
     -- wrap = false,          -- sets vim.opt.wrap
   },
 
