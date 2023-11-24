@@ -8,8 +8,12 @@ vim.api.nvim_create_autocmd(
 
       -- Vim settings
 
-      vim.opt.signcolumn = "auto"
-      vim.opt.foldcolumn = "auto"
+      vim.opt_local.signcolumn = 'auto'
+      vim.opt_local.foldcolumn = 'auto'
+      vim.opt_local.makeprg = 'groovy %'
+      vim.keymap.set({ 'n', 'i', 'v' }, '<F5>', ':make<CR>', { buffer = true })
+      -- vim.keymap.nnoremap { '<leader>²x', ':make<CR>' }
+      -- vim.keymap.inoremap { '<leader>²x', '<ESC>:make<CR>' }
 
       -- Terminal settings
 
@@ -19,6 +23,7 @@ vim.api.nvim_create_autocmd(
       local command = " groovysh"
       local direction = "horizontal"
       local size = 25
+      local toggle_key = "<F10>"
 
       -- Define a new terminal dedicated to groovy
       local toggleterm = require('toggleterm')
@@ -45,35 +50,37 @@ vim.api.nvim_create_autocmd(
 
       -- -- Define a function to run code from current buffer in the terminal
       -- function _Groovy_buffer_exec()
-      -- if not groovy:is_open() then groovy:open(size, direction) end
-      --   groovy:open(size, direction)
+      --   if not groovy:is_open() then groovy:open(size, direction) end
       --   groovy:send(' clear', true)
       --   groovy:send(command, true)
       -- end
 
       --
       -- Define a function to run code from visual selection in the terminal
-      -- function _Groovy_visual_exec(args)
-      --   groovy:open(size, direction)
-      --   toggleterm.send_lines_to_terminal("visual_lines", true, { groovy.id })
-      -- end
+      function _Groovy_visual_exec()
+        if not groovy:is_open() then groovy:open(size, direction) end
+        toggleterm.send_lines_to_terminal("visual_lines", true, { groovy.id })
+      end
 
       -- Define a keymap to run the current buffer in the terminal
       --   <F10> corresponds to         F10 on my keyboard
       --   <F22> corresponds to Shift + F10 on my keyboard
       --   <F34> corresponds to Ctrl  + F10 on my keyboard
-      vim.api.nvim_set_keymap("n", "<F10>",
-        "<cmd>lua _Groovy_terminal_toggle()<cr>",
+      vim.keymap.set({ 'n', 'i', 'v', 't' }, '<F10>', function() groovy:toggle(size, direction) end,
         { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("i", "<F10>",
-        "<cmd>lua _Groovy_terminal_toggle()<cr>",
-        { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("v", "<F10>",
-        "<cmd>lua _Groovy_terminal_toggle()<cr>",
-        { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("t", "<F10>",
-        "<cmd>lua _Groovy_terminal_toggle()<cr>",
-        { noremap = true, silent = true })
+
+      -- vim.api.nvim_set_keymap("n", toggle_key,
+      --   "<cmd>lua _Groovy_terminal_toggle()<cr>",
+      --   { noremap = true, silent = true })
+      -- vim.api.nvim_set_keymap("i", toggle_key,
+      --   "<cmd>lua _Groovy_terminal_toggle()<cr>",
+      --   { noremap = true, silent = true })
+      -- vim.api.nvim_set_keymap("v", toggle_key,
+      --   "<cmd>lua _Groovy_terminal_toggle()<cr>",
+      --   { noremap = true, silent = true })
+      -- vim.api.nvim_set_keymap("t", toggle_key,
+      --   "<cmd>lua _Groovy_terminal_toggle()<cr>",
+      --   { noremap = true, silent = true })
 
       -- vim.api.nvim_set_keymap("n", "<F22>",
       --   '<cmd>lua _Groovy_visual_exec()<cr>',
@@ -81,9 +88,9 @@ vim.api.nvim_create_autocmd(
       -- vim.api.nvim_set_keymap("i", "<F22>",
       --   '<cmd>lua _Groovy_visual_exec()<cr>',
       --   { noremap = true, silent = true })
-      -- vim.api.nvim_set_keymap("v", "<F22>",
-      --   "<cmd>lua _Groovy_visual_exec()<cr>",
-      --   { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("v", "<F22>",
+        "<cmd>lua _Groovy_visual_exec()<cr>",
+        { noremap = true, silent = true })
 
       -- vim.api.nvim_set_keymap("n", "<F34>",
       --   '<cmd>lua _Groovy_buffer_exec()<cr>',

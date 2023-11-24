@@ -8,9 +8,8 @@ vim.api.nvim_create_autocmd(
 
       -- Vim settings
 
-      vim.opt.signcolumn = "auto"
-      vim.opt.foldcolumn = "auto"
-
+      vim.opt_local.signcolumn = "auto"
+      vim.opt_local.foldcolumn = "auto"
 
       -- Terminal settings
 
