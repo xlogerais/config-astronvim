@@ -6,11 +6,6 @@ vim.api.nvim_create_autocmd(
       local utils = require("astronvim.utils")
       utils.notify("Loading autocmd customizations for python files")
 
-      -- Vim settings
-
-      vim.opt_local.signcolumn = "auto"
-      vim.opt_local.foldcolumn = "auto"
-
       -- Terminal settings
 
       -- Define prefered options for the terminal
@@ -69,6 +64,24 @@ vim.api.nvim_create_autocmd(
         -- "<cmd>TermExec name=python cmd='python %'<cr>",
         '<cmd>lua _Python_buffer_exec()<cr>',
         { noremap = true, silent = true })
+
+      utils.notify("Type <F10> to toggle the python terminal")
+      utils.notify("Type Ctrl+<F10> to run current buffer in the python terminal")
+
+      -- DevDocs
+      require('nvim-devdocs').setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+      vim.keymap.set({ 'n', 'i', 'v' }, '<F1>', ':DevdocsOpen python-3.10<CR>', { buffer = true })
+
+      utils.notify("Type <F1> to access DevDocs documentation for python")
+
+      -- Vim settings
+
+      vim.opt_local.signcolumn = "auto"
+      vim.opt_local.foldcolumn = "auto"
     end,
   }
 )

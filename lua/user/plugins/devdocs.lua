@@ -5,5 +5,7 @@ return {
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  -- opts = {}
+  opts = {
+    previewer_cmd = "glow",   -- for example: "glow"
+  }
 }

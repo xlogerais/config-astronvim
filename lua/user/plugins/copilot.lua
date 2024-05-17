@@ -1,11 +1,7 @@
--- Github Copilot
+-- Github Copilot official plugin
+-- (Voir https://docs.github.com/fr/copilot/getting-started-with-github-copilot?tool=neovim)
 
--- Désactivé en faveur de la version communautaire (définie dans plugins/community.lua)
-return {}
-
--- Official plugin
-
--- https://docs.github.com/fr/copilot/getting-started-with-github-copilot?tool=neovim
+-- Actuellement désactivé en faveur de la version communautaire (définie dans plugins/community.lua)
 -- return {
 --   {
 --     "github/copilot.vim",
@@ -16,26 +12,16 @@ return {}
 --     },
 --   }
 -- }
+
 -- Exemple de configuration des touches
 -- imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 -- let g:copilot_no_tab_map = v:true
 
--- Alternative plugin in pure lua
-
--- https://github.com/zbirenbaum/copilot.lua
--- return {
---   {
---     "zbirenbaum/copilot.lua",
---     config = function()
---       require("copilot").setup()
---     end,
---     cmd = "Copilot",
---     event = "InsertEnter",
---   }
---   ,
---   -- {
---   --   "zbirenbaum/copilot-cmp",
---   --   config = function()
---   --     require("copilot_cmp").setup()
---   --   end
---   -- }
+-- Github Copilot Chat plugin
+-- (Voir https://github.com/gptlang/CopilotChat.nvim)
+return {
+  {
+    "gptlang/CopilotChat.nvim",
+    lazy = false,
+  }
+}
