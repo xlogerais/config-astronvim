@@ -57,15 +57,15 @@ return {
 
         -- ["<F1>"] = { "<cmd>Telescope help_tags<cr>", desc = "Find help with Telescope" },
         ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" }, -- F26 corresponds to <Ctrl+F2> on my keyboard
-        ["<F3>"] = { function() require("astrocore").toggle_term_cmd "lazygit" end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
-        ["<F4>"] = { function() require("astrocore").toggle_term_cmd "tig" end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
+        ["<F3>"] = { function() require("astrocore").toggle_term_cmd({cmd="lazygit", direction="float"}) end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
+        ["<F4>"] = { function() require("astrocore").toggle_term_cmd({cmd="tig", direction="float"}) end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
       },
 
       -- Insert mode
       i = {
         ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" }, -- F26 corresponds to <Ctrl+F2> on my keyboard
-        ["<F3>"] = { function() require("astrocore").toggle_term_cmd "lazygit" end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
-        ["<F4>"] = { function() require("astrocore").toggle_term_cmd "tig" end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
+        ["<F3>"] = { function() require("astrocore").toggle_term_cmd({cmd="lazygit", direction="float"}) end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
+        ["<F4>"] = { function() require("astrocore").toggle_term_cmd({cmd="tig", direction="float"}) end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
       },
 
       -- Terminal mode
@@ -81,8 +81,8 @@ return {
         ["<C-j>"] = false,
         ["<C-k>"] = false,
         -- My terms
-        ["<F3>"] = { function() require("astrocore").toggle_term_cmd "lazygit" end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
-        ["<F4>"] = { function() require("astrocore").toggle_term_cmd "tig" end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
+        ["<F3>"] = { function() require("astrocore").toggle_term_cmd({cmd="lazygit", direction="float"}) end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
+        ["<F4>"] = { function() require("astrocore").toggle_term_cmd({cmd="tig", direction="float"}) end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
       },
     },
   },
