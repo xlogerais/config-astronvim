@@ -11,7 +11,9 @@ require("custom.filetypes")
 --- Remove some mappings in terminal mode
 --- that should have been set by other plugins
 --- but that are very annoying
+--- (maybe related to the smart-splits plugin)
 vim.keymap.del("t", "<C-l>") -- INFO: Clear the terminal
 vim.keymap.del("t", "<C-j>") -- INFO: Move a commit up/down in LazyGit
 vim.keymap.del("t", "<C-k>") -- INFO: Move a commit up/down in LazyGit
---- NOTE: : Maybe related to the smart-splits plugin
+
+vim.cmd("colorscheme tokyonight")
