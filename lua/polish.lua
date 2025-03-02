@@ -2,6 +2,9 @@
 -- things like custom filetypes. This just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 
+-- Set up custom keymaps
+require("custom.keymaps")
+
 -- Set up custom autocmds
 require("custom.autocmds")
 
