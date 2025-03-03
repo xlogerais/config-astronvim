@@ -8,6 +8,8 @@ return {
           ["<space>"] = false, -- disable space until we figure out which-key disabling
           [">"] = "next_source",
           ["<"] = "prev_source",
+          ["<tab>"] = "next_source",
+          ["<s-tab>"] = "prev_source",
         },
       },
       event_handlers = {
