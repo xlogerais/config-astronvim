@@ -12,38 +12,39 @@ return {
 	-- Personal config
 	--
 
-  -- { import = "astrocommunity.pack.ansible" },
-  -- { import = "astrocommunity.pack.docker" },
-  -- { import = "astrocommunity.pack.helm" },
-  -- { import = "astrocommunity.pack.terraform" },
-  -- { import = "astrocommunity.pack.python" },
-  -- { import = "astrocommunity.pack.java" },
-  -- { import = "astrocommunity.pack.html-css" },
-  -- { import = "astrocommunity.pack.angular" },
 	-- Packs
 	{ import = "astrocommunity.pack.bash" },
 	{ import = "astrocommunity.pack.toml" },
 	{ import = "astrocommunity.pack.yaml" },
 	{ import = "astrocommunity.pack.json" },
 	{ import = "astrocommunity.pack.markdown" },
+	-- { import = "astrocommunity.pack.ansible" },
+	-- { import = "astrocommunity.pack.docker" },
+	-- { import = "astrocommunity.pack.helm" },
+	-- { import = "astrocommunity.pack.terraform" },
+	-- { import = "astrocommunity.pack.python" },
+	-- { import = "astrocommunity.pack.java" },
+	-- { import = "astrocommunity.pack.html-css" },
+	-- { import = "astrocommunity.pack.angular" },
 
 	-- Recipes
 	{ import = "astrocommunity.recipes.heirline-mode-text-statusline" },
 	{ import = "astrocommunity.recipes.cache-colorscheme" },
 	{ import = "astrocommunity.recipes.neo-tree-dark" },
-	-- { import = "astrocommunity.recipes.disable-tabline" },
+	{ import = "astrocommunity.recipes.disable-tabline" },
 
 	-- Individual plugins (misc)
-	{ import = "astrocommunity.diagnostics.trouble-nvim" },
-	-- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-	-- { import = "astrocommunity.completion.copilot-lua-cmp" },
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 	{ import = "astrocommunity.editing-support.nvim-devdocs" },
 	-- { import = "astrocommunity.editing-support.chatgpt-nvim" },
 	{ import = "astrocommunity.indent.indent-rainbowline" },
+	{ import = "astrocommunity.diagnostics.trouble-nvim" },
+	{ import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
+	-- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+	-- { import = "astrocommunity.completion.copilot-lua-cmp" },
 	-- { import = "astrocommunity.programming-language-support.rest-nvim" },
 	-- { import = "astrocommunity.project.project-nvim" },
-	{ import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
+	-- { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
 
 	-- Individual plugins (colorschemes)
 	{ import = "astrocommunity.colorscheme.vscode-nvim" },
