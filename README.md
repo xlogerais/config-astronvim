@@ -1,18 +1,39 @@
-# AstroNvim configuration
+# Configuration pour [AstroNvim](https://astronvim.com/)
 
-**NOTE:** This is for AstroNvim v4+
+**NOTE:** Cette configuration est faite pour les versions de AstroNvim supérieures à la version 4 et plus.
 
 ## 🛠️ Installation
 
-#### Clone the repository
+### Installation nvim par défaut
+
+#### Copie du dépôt
+
+```shell
+git clone https://gitea.logerais.com/xavier/config-astronvim.git ~/.config/nvim
+```
+
+#### Lancement
+
+```shell
+nvim
+```
+
+### Installation nvim alternative
+
+#### Copie du dépôt
 
 ```shell
 git clone https://gitea.logerais.com/xavier/config-astronvim.git ~/.config/astronvim
 ```
 
-#### Start Neovim
+#### Définition d'un alias
 
 ```shell
-export NVIM_APPNAME=astronvim
-nvim
+alias astronvim='NVIM_APPNAME=astronvim nvim'
+```
+
+#### Lancement
+
+```shell
+astronvim
 ```
