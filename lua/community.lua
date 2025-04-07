@@ -28,23 +28,29 @@ return {
   { import = "astrocommunity.pack.terraform" },
 
 	-- Recipes
+	{ import = "astrocommunity.recipes.disable-tabline" },
 	{ import = "astrocommunity.recipes.heirline-mode-text-statusline" },
+	{ import = "astrocommunity.recipes.heirline-vscode-winbar" },
 	{ import = "astrocommunity.recipes.cache-colorscheme" },
 	{ import = "astrocommunity.recipes.neo-tree-dark" },
-	{ import = "astrocommunity.recipes.disable-tabline" },
 
 	-- Individual plugins (misc)
+	{ import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+	{ import = "astrocommunity.completion.cmp-cmdline" },
+	{ import = "astrocommunity.completion.cmp-spell" },
+	{ import = "astrocommunity.completion.cmp-git" },
+	{ import = "astrocommunity.completion.cmp-emoji" },
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
-	-- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-	-- { import = "astrocommunity.completion.copilot-lua-cmp" },
+	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 	{ import = "astrocommunity.editing-support.nvim-devdocs" },
-	-- { import = "astrocommunity.editing-support.chatgpt-nvim" },
-	{ import = "astrocommunity.indent.indent-rainbowline" },
-	-- { import = "astrocommunity.programming-language-support.rest-nvim" },
-	-- { import = "astrocommunity.project.project-nvim" },
 	{ import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
 	{ import = "astrocommunity.git.diffview-nvim" },
+	{ import = "astrocommunity.indent.indent-rainbowline" },
+	-- { import = "astrocommunity.completion.copilot-lua-cmp" },
+	-- { import = "astrocommunity.editing-support.chatgpt-nvim" },
+	-- { import = "astrocommunity.programming-language-support.rest-nvim" },
+	-- { import = "astrocommunity.project.project-nvim" },
 
 	-- Individual plugins (colorschemes)
 	{ import = "astrocommunity.colorscheme.vscode-nvim" },
