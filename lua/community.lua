@@ -47,6 +47,7 @@ return {
 	{ import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
 	{ import = "astrocommunity.git.diffview-nvim" },
 	{ import = "astrocommunity.indent.indent-rainbowline" },
+	{ import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
 	-- { import = "astrocommunity.completion.copilot-lua-cmp" },
 	-- { import = "astrocommunity.editing-support.chatgpt-nvim" },
 	-- { import = "astrocommunity.programming-language-support.rest-nvim" },
