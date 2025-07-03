@@ -39,7 +39,7 @@ return {
     options = {
       opt = { -- vim.opt.<key>
         number = true, -- sets vim.opt.number
-        relativenumber = false, -- sets vim.opt.relativenumber
+        relativenumber = true, -- sets vim.opt.relativenumber
         spell = false, -- sets vim.opt.spell
         spelllang = "fr", -- Set spell language to french
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
@@ -49,7 +49,6 @@ return {
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
-
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -82,15 +81,32 @@ return {
 
         -- Normal mode : Custom mappings
         ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" }, -- F26 corresponds to <Ctrl+F2> on my keyboard
-        ["<F3>"] = { function() require("astrocore").toggle_term_cmd({cmd="lazygit", direction="float"}) end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
-        ["<F4>"] = { function() require("astrocore").toggle_term_cmd({cmd="tig", direction="float"}) end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
+        ["<F3>"] = {
+          function() require("astrocore").toggle_term_cmd { cmd = "lazygit", direction = "float" } end,
+          desc = "Lazygit terminal",
+        },
+        ["<F4>"] = {
+          function() require("astrocore").toggle_term_cmd { cmd = "tig", direction = "float" } end,
+          desc = "Tig terminal",
+        },
       },
       -- Insert mode : Custom mappings
       i = {
         ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" }, -- F26 corresponds to <Ctrl+F2> on my keyboard
-        ["<F3>"] = { function() require("astrocore").toggle_term_cmd({cmd="lazygit", direction="float"}) end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
-        ["<F4>"] = { function() require("astrocore").toggle_term_cmd({cmd="tig", direction="float"}) end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
+        ["<F3>"] = {
+          function() require("astrocore").toggle_term_cmd { cmd = "lazygit", direction = "float" } end,
+          desc = "Lazygit terminal",
+        },
+        ["<F4>"] = {
+          function() require("astrocore").toggle_term_cmd { cmd = "tig", direction = "float" } end,
+          desc = "Tig terminal",
+        },
       },
+      -- INFO:
+      -- F26 corresponds to <Ctrl+F2> on my keyboard
+      -- F27 corresponds to <Ctrl+F3> on my keyboard
+      -- F28 corresponds to <Ctrl+F4> on my keyboard
+
       -- Terminal mode : Custom mappings
       t = {
         -- Switch to normal mode in terminal mode
@@ -102,10 +118,15 @@ return {
         ["<C-j>"] = false,
         ["<C-k>"] = false,
         -- My terms
-        ["<F3>"] = { function() require("astrocore").toggle_term_cmd({cmd="lazygit", direction="float"}) end, desc = "Lazygit terminal" }, -- F27 corresponds to <Ctrl+F3> on my keyboard
-        ["<F4>"] = { function() require("astrocore").toggle_term_cmd({cmd="tig", direction="float"}) end, desc = "Tig terminal" }, -- F28 corresponds to <Ctrl+F4> on my keyboard
+        ["<F3>"] = {
+          function() require("astrocore").toggle_term_cmd { name = "LazyGit", cmd = "lazygit", direction = "float" } end,
+          desc = "Lazygit terminal",
+        }, -- F27 corresponds to <Ctrl+F3> on my keyboard
+        ["<F4>"] = {
+          function() require("astrocore").toggle_term_cmd { name = "Tig", cmd = "tig", direction = "float" } end,
+          desc = "Tig terminal",
+        }, -- F28 corresponds to <Ctrl+F4> on my keyboard
       },
-
     },
   },
 }
