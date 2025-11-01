@@ -65,9 +65,9 @@ return {
   { import = "astrocommunity.editing-support.nvim-devdocs" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  -- { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   { import = "astrocommunity.motion.marks-nvim" }, -- Display marks in the sign column
   { import = "astrocommunity.programming-language-support.kulala-nvim" }, -- A minimal HTTP-client interface for Neovim
-  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
 
   -- Disabled
 
