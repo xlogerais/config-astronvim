@@ -93,15 +93,27 @@ return {
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
-      -- first key is the mode
+
       n = {
-        -- second key is the lefthand side of the map
+
+        -- tables with just a `desc` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        -- ["<Leader>b"] = { desc = "Buffers" },
+
+        -- setting a mapping to false will disable it
+        -- ["<C-S>"] = false,
+
+        -- Visual selection of pasted text
+        ["gp"] = { "`[v`]", desc = "Visual selection of pasted text" },
 
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
+        ["<Leader>b"] = { desc = "Buffers" },
+        ["<Leader>bn"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<Leader>bp"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
@@ -112,13 +124,6 @@ return {
         },
         ["<Leader>bp"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["<Leader>bn"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
-
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
 
         -- Normal mode : Custom mappings
         ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" }, -- F26 corresponds to <Ctrl+F2> on my keyboard
@@ -155,7 +160,7 @@ return {
         -- Clear Ctrl+l so that we can use it to clear the terminal
         ["<C-l>"] = false,
         ["<C-h>"] = false,
-        -- Clear Ctrl-J and Ctrl-K so that we can use them to navigate the terminal (for lazygit)
+        -- Clear Ctrl-J and Ctrl-K so that we can use them for apps running in the terminal (for example lazygit)
         ["<C-j>"] = false,
         ["<C-k>"] = false,
         -- My terms
