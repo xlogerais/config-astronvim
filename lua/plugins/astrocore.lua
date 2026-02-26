@@ -35,6 +35,45 @@ return {
         [".*/etc/foo/.*"] = "fooscript",
       },
     },
+    -- Commands
+    commands = {
+      CleanYamlSpaces = {
+        function()
+          if vim.bo.filetype == 'yaml' or vim.bo.filetype == 'yml' then
+            local cursor_pos = vim.api.nvim_win_get_cursor(0)
+            vim.cmd([[%s/\s\+$//e]])
+            vim.api.nvim_win_set_cursor(0, cursor_pos)
+            print("Espaces en fin de ligne supprimés")
+          else
+            print("Cette commande ne fonctionne que sur les fichiers YAML")
+          end
+        end,
+        desc = "Nettoie les espaces en fin de ligne dans les fichiers YAML",
+      },
+    },
+    -- Autocmd
+    autocmds = {
+      yaml_trailing_spaces = {
+        {
+          event = { "BufRead", "BufNewFile" },
+          pattern = { "*.yaml", "*.yml" },
+          callback = function()
+            vim.fn.matchadd("TrailingWhiteSpace", "\\s\\+$")
+          end,
+          desc = "Surligne les espaces en fin de ligne dans les fichiers YAML",
+        },
+        {
+          event = "BufWritePre",
+          pattern = { "*.yaml", "*.yml" },
+          callback = function()
+            local cursor_pos = vim.api.nvim_win_get_cursor(0)
+            vim.cmd([[%s/\s\+$//e]])
+            vim.api.nvim_win_set_cursor(0, cursor_pos)
+          end,
+          desc = "Nettoie les espaces en fin de ligne avant sauvegarde",
+        },
+      },
+    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
