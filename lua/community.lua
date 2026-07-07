@@ -28,13 +28,12 @@ return {
   -- { import = "astrocommunity.pack.html-css" },
   -- { import = "astrocommunity.pack.angular" },
 
-  -- { import = "astrocommunity.pack.ansible" },
-  -- { import = "astrocommunity.pack.terraform" },
-  -- { import = "astrocommunity.pack.docker" },
-  -- { import = "astrocommunity.pack.helm" },
+  { import = "astrocommunity.pack.ansible" },
+  { import = "astrocommunity.pack.terraform" },
+  { import = "astrocommunity.pack.docker" },
+  { import = "astrocommunity.pack.helm" },
 
   -- { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
-  { import = "astrocommunity.indent.indent-rainbowline" },
 
   -- Recipes
 
@@ -44,39 +43,24 @@ return {
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.recipes.neo-tree-dark" },
   { import = "astrocommunity.recipes.neovide" },
-  -- { import = "astrocommunity.recipes.ai" },
+  { import = "astrocommunity.recipes.ai" },
 
   -- Completion
   { import = "astrocommunity.completion.blink-cmp-git" },
   { import = "astrocommunity.completion.blink-cmp-emoji" },
-  -- { import = "astrocommunity.completion.cmp-nerdfont" },
-  { import = "astrocommunity.completion.minuet-ai-nvim" },
+  { import = "astrocommunity.completion.cmp-nerdfont" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- { import = "astrocommunity.completion.cmp-spell" },
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+
+  -- AI
+  { import = "astrocommunity.ai.copilotchat-nvim" },
+  -- { import = "astrocommunity.completion.minuet-ai-nvim" },
 
   -- Telescope
   { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" }, -- A Telescope extension to manage Toggleterm's terminals in NeoVim
   -- { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
 
-  -- Individual plugins (misc)
-
-  { import = "astrocommunity.workflow.hardtime-nvim" }, -- Display hints to get rid of bad habits
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
-  { import = "astrocommunity.editing-support.nvim-devdocs" },
-  { import = "astrocommunity.git.diffview-nvim" },
-  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
-  -- { import = "astrocommunity.markdown-and-latex.markview-nvim" },
-  { import = "astrocommunity.motion.marks-nvim" }, -- Display marks in the sign column
-  { import = "astrocommunity.programming-language-support.kulala-nvim" }, -- A minimal HTTP-client interface for Neovim
-
-  -- Disabled
-
-  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" }, -- display a column when text width exceed defined limit
-  -- { import = "astrocommunity.editing-support.chatgpt-nvim" },
-  -- { import = "astrocommunity.programming-language-support.rest-nvim" },
-  -- { import = "astrocommunity.project.project-nvim" },
-
-  -- Individual plugins (colorschemes)
+  -- Colorschemes
   { import = "astrocommunity.colorscheme.vscode-nvim" },
   { import = "astrocommunity.colorscheme.github-nvim-theme" },
   { import = "astrocommunity.colorscheme.neosolarized-nvim" },
@@ -86,6 +70,25 @@ return {
   { import = "astrocommunity.colorscheme.tokyodark-nvim" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+
+  -- Individual plugins (misc)
+
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.motion.marks-nvim" }, -- Display marks in the sign column
+  { import = "astrocommunity.git.diffview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  -- { import = "astrocommunity.markdown-and-latex.markview-nvim" },
+  { import = "astrocommunity.programming-language-support.kulala-nvim" }, -- A minimal HTTP-client interface for Neovim
+  { import = "astrocommunity.indent.indent-rainbowline" },
+  { import = "astrocommunity.editing-support.nvim-devdocs" },
+  -- { import = "astrocommunity.workflow.hardtime-nvim" }, -- Display hints to get rid of bad habits
+
+  -- Disabled
+
+  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" }, -- display a column when text width exceed defined limit
+  -- { import = "astrocommunity.editing-support.chatgpt-nvim" },
+  -- { import = "astrocommunity.programming-language-support.rest-nvim" },
+  -- { import = "astrocommunity.project.project-nvim" },
 
   -- Individual plugins customization
   -- {
