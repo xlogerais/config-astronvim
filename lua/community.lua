@@ -60,7 +60,7 @@ return {
 
   -- Individual plugins (misc)
 
-  { import = "astrocommunity.workflow.hardtime-nvim" }, -- Display hints to get rid of bad habits
+  -- { import = "astrocommunity.workflow.hardtime-nvim" }, -- Display hints to get rid of bad habits
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.nvim-devdocs" },
   { import = "astrocommunity.git.diffview-nvim" },
