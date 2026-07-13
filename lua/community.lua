@@ -50,9 +50,11 @@ return {
   { import = "astrocommunity.completion.blink-cmp-git" },
   { import = "astrocommunity.completion.blink-cmp-emoji" },
   -- { import = "astrocommunity.completion.cmp-nerdfont" },
-  { import = "astrocommunity.completion.minuet-ai-nvim" },
   -- { import = "astrocommunity.completion.cmp-spell" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+
+  -- AI
+  { import = "astrocommunity.ai.minuet-ai-nvim" },
 
   -- Telescope
   { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" }, -- A Telescope extension to manage Toggleterm's terminals in NeoVim
