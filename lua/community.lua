@@ -44,7 +44,7 @@ return {
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.recipes.neo-tree-dark" },
   { import = "astrocommunity.recipes.neovide" },
-  -- { import = "astrocommunity.recipes.ai" },
+  { import = "astrocommunity.recipes.ai" },
 
   -- Completion
   { import = "astrocommunity.completion.blink-cmp-git" },
