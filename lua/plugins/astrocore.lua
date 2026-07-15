@@ -35,45 +35,6 @@ return {
         [".*/etc/foo/.*"] = "fooscript",
       },
     },
-    -- Commands
-    commands = {
-      CleanYamlSpaces = {
-        function()
-          if vim.bo.filetype == 'yaml' or vim.bo.filetype == 'yml' then
-            local cursor_pos = vim.api.nvim_win_get_cursor(0)
-            vim.cmd([[%s/\s\+$//e]])
-            vim.api.nvim_win_set_cursor(0, cursor_pos)
-            print("Espaces en fin de ligne supprimés")
-          else
-            print("Cette commande ne fonctionne que sur les fichiers YAML")
-          end
-        end,
-        desc = "Nettoie les espaces en fin de ligne dans les fichiers YAML",
-      },
-    },
-    -- Autocmd
-    autocmds = {
-      yaml_trailing_spaces = {
-        {
-          event = { "BufRead", "BufNewFile" },
-          pattern = { "*.yaml", "*.yml" },
-          callback = function()
-            vim.fn.matchadd("TrailingWhiteSpace", "\\s\\+$")
-          end,
-          desc = "Surligne les espaces en fin de ligne dans les fichiers YAML",
-        },
-        {
-          event = "BufWritePre",
-          pattern = { "*.yaml", "*.yml" },
-          callback = function()
-            local cursor_pos = vim.api.nvim_win_get_cursor(0)
-            vim.cmd([[%s/\s\+$//e]])
-            vim.api.nvim_win_set_cursor(0, cursor_pos)
-          end,
-          desc = "Nettoie les espaces en fin de ligne avant sauvegarde",
-        },
-      },
-    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
@@ -90,30 +51,34 @@ return {
         -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
+    -- Commands
+    commands = {
+      CleanYamlSpaces = {
+        function()
+          if vim.bo.filetype == "yaml" or vim.bo.filetype == "yml" then
+            local cursor_pos = vim.api.nvim_win_get_cursor(0)
+            vim.cmd [[%s/\s\+$//e]]
+            vim.api.nvim_win_set_cursor(0, cursor_pos)
+            print "Espaces en fin de ligne supprimés"
+          else
+            print "Cette commande ne fonctionne que sur les fichiers YAML"
+          end
+        end,
+        desc = "Nettoie les espaces en fin de ligne dans les fichiers YAML",
+      },
+    },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
-
+      -- first key is the mode
       n = {
-
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
-
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
-
-        -- Visual selection of pasted text
-        ["gp"] = { "`[v`]", desc = "Visual selection of pasted text" },
+        -- second key is the lefthand side of the map
 
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
-        ["<Leader>b"] = { desc = "Buffers" },
-        ["<Leader>bn"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["<Leader>bp"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
@@ -122,11 +87,21 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
-        ["<Leader>bp"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["<Leader>bn"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<Leader>bp"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+
+        -- tables with just a `desc` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        ["<Leader>b"] = { desc = "Buffers" },
+
+        -- setting a mapping to false will disable it
+        -- ["<C-S>"] = false,
+
+        -- Visual selection of pasted text
+        ["gp"] = { "`[v`]", desc = "Visual selection of pasted text" },
 
         -- Normal mode : Custom mappings
-        ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" }, -- F26 corresponds to <Ctrl+F2> on my keyboard
+        ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" },
         ["<F3>"] = {
           function() require("astrocore").toggle_term_cmd { cmd = "lazygit", direction = "float" } end,
           desc = "Lazygit terminal",
@@ -138,7 +113,7 @@ return {
       },
       -- Insert mode : Custom mappings
       i = {
-        ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" }, -- F26 corresponds to <Ctrl+F2> on my keyboard
+        ["<F2>"] = { "<cmd>Neotree toggle<cr>", desc = "File Explorer" },
         ["<F3>"] = {
           function() require("astrocore").toggle_term_cmd { cmd = "lazygit", direction = "float" } end,
           desc = "Lazygit terminal",
@@ -172,6 +147,27 @@ return {
           function() require("astrocore").toggle_term_cmd { name = "Tig", cmd = "tig", direction = "float" } end,
           desc = "Tig terminal",
         }, -- F28 corresponds to <Ctrl+F4> on my keyboard
+      },
+    },
+    -- Autocmd
+    autocmds = {
+      yaml_trailing_spaces = {
+        {
+          event = { "BufRead", "BufNewFile" },
+          pattern = { "*.yaml", "*.yml" },
+          callback = function() vim.fn.matchadd("TrailingWhiteSpace", "\\s\\+$") end,
+          desc = "Surligne les espaces en fin de ligne dans les fichiers YAML",
+        },
+        {
+          event = "BufWritePre",
+          pattern = { "*.yaml", "*.yml" },
+          callback = function()
+            local cursor_pos = vim.api.nvim_win_get_cursor(0)
+            vim.cmd [[%s/\s\+$//e]]
+            vim.api.nvim_win_set_cursor(0, cursor_pos)
+          end,
+          desc = "Nettoie les espaces en fin de ligne avant sauvegarde",
+        },
       },
     },
   },

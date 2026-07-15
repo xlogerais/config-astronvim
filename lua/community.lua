@@ -54,7 +54,8 @@ return {
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 
   -- AI
-  { import = "astrocommunity.ai.minuet-ai-nvim" },
+  -- { import = "astrocommunity.ai.copilotchat-nvim" },
+  -- { import = "astrocommunity.ai.minuet-ai-nvim" },
 
   -- Telescope
   { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" }, -- A Telescope extension to manage Toggleterm's terminals in NeoVim
@@ -68,15 +69,7 @@ return {
   { import = "astrocommunity.editing-support.nvim-devdocs" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
-  -- { import = "astrocommunity.markdown-and-latex.markview-nvim" },
-  { import = "astrocommunity.programming-language-support.kulala-nvim" }, -- A minimal HTTP-client interface for Neovim
-
-  -- Disabled
-
-  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" }, -- display a column when text width exceed defined limit
-  -- { import = "astrocommunity.editing-support.chatgpt-nvim" },
-  -- { import = "astrocommunity.programming-language-support.rest-nvim" },
-  -- { import = "astrocommunity.project.project-nvim" },
+  -- { import = "astrocommunity.markdown-and-latex.markview-nvim" }, -- Alternative to render-markdown-nvim
 
   -- Individual plugins (colorschemes)
   { import = "astrocommunity.colorscheme.vscode-nvim" },
@@ -89,6 +82,13 @@ return {
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
 
+  -- Disabled
+
+  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" }, -- display a column when text width exceed defined limit
+  -- { import = "astrocommunity.editing-support.chatgpt-nvim" },
+  -- { import = "astrocommunity.programming-language-support.rest-nvim" },
+  -- { import = "astrocommunity.project.project-nvim" },
+
   -- Individual plugins customization
   -- {
   --   "nvim-treesitter/nvim-treesitter",
@@ -100,8 +100,4 @@ return {
   --     end
   --   end,
   -- },
-
-  -- Now provided by core
-  -- { import = "astrocommunity.bars-and-lines.vim-illuminate" }, -- highlight other uses of the word under cursor
-  -- { import = "astrocommunity.editing-support.todo-comments-nvim" },
 }
