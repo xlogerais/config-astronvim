@@ -151,6 +151,20 @@ return {
     },
     -- Autocmd
     autocmds = {
+      -- Configuration pour ouvrir l'aide dans un nouvel onglet
+      help_in_tab = {
+        {
+          event = "BufWinEnter",
+          pattern = "*.txt",
+          callback = function()
+            if vim.bo.filetype == "help" then
+              -- Déplace le buffer d'aide vers un nouvel onglet
+              vim.cmd "wincmd T"
+            end
+          end,
+          desc = "Ouvre l'aide dans un nouvel onglet",
+        },
+      },
       yaml_trailing_spaces = {
         {
           event = { "BufRead", "BufNewFile" },
